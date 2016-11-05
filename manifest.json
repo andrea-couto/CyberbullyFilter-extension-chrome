@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+	"name": "CyberFilter",
+	"version": "1.0",
+	"description": "Hides offensive words- option lets user add own words to block.",
+	"permissions": [
+		"tabs", 
+		"http://*/*"
+	],
+
+	"icons": { "128": "surveillance-icon.png" },  //public domain 
+
+	"options_page": "options.html",
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"content_scripts": [
+		{
+			"matches": ["http://*/*"],
+			"js": ["content.js"],
+			"run_at": "document_end"
+		}
+	]
+}
+
+// code adapted from these two sources -> https://github.com/chelmi98/textReplace textReplace
+//https://github.com/thomasythuang/BostonText
